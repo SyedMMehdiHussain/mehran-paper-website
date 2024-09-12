@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .faq-container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+            padding: 15px;
+            background-color: #e6e6e6;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #d4d4d4;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            padding: 0 15px;
+            color: #555;
+        }
+
+        .faq-answer.open {
+            max-height: 200px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .arrow {
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .arrow.open {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+        <div class="faq-item">
+            <div class="faq-question">How to contact Khawar Paper Mart ?<span class="arrow">&#9654;</span></div>
+            <div class="faq-answer">For contacting us visit Khawar paper mart and click on the contact us icon on the right corner of the webpage where you will find information about how will you contact us. Or you can Call us at (0423) 7361 562, 63, 64
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Are you Offering the Guaranteed Genuine Products?<span class="arrow">&#9654;</span></div>
+            <div class="faq-answer">Yes, we are committed to providing our customers with 100% company genuine products. We also take necessary action to ensure the genuine products must be given out to our customers.  </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Where can I find more detailed information about a product?<span class="arrow">&#9654;</span></div>
+            <div class="faq-answer">The brief information about any particular product is given in the key features or Specifications of the product. You can get it by clicking on the product, Go through the descriptions and reviews of the particular product.if you want more detailed information, you can call us at (042) 37311422
+
+            </div>
+        </div>
+        
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const answer = item.nextElementSibling;
+                const arrow = item.querySelector('.arrow');
+                
+                if (answer.classList.contains('open')) {
+                    answer.classList.remove('open');
+                    arrow.classList.remove('open');
+                } else {
+                    document.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
+                        openAnswer.classList.remove('open');
+                        openAnswer.previousElementSibling.querySelector('.arrow').classList.remove('open');
+                    });
+                    answer.classList.add('open');
+                    arrow.classList.add('open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
